@@ -1,0 +1,15 @@
+body {
+  background-color: rgb(110, 139, 110);
+}
+
+h1 {
+  text-align: center;
+}
+
+ img {
+   height: 200px;
+   background-size: cover;
+   background-position: center;
+ }
+
+ /* target the ID for specific type of pet */
