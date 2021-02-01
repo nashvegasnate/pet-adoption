@@ -9,23 +9,27 @@
 </head>
 <body>
   <h1>PET ADOPTION</h1>
+  <div class="container mt-3 text-center">
+    <div id="buttons">  
+      <button type="button" class="btn btn-outline-warning" id="all">All</button>
+      <button type="button" class="btn btn-outline-primary" id="cat">Cat</button>
+      <button type="button" class="btn btn-outline-light" id="dog">Dog</button>
+      <button type="button" class="btn btn-outline-dark" id="dino">Dino</button>
+    </div>  
+
   <div class="card-container">
-    <div id="buttons"></div>
-    <div id="pet-cards" class="d-flex flex-wrap justify-content-around">
+    <div id="pets" class="d-flex flex-wrap justify-content-around">
       <div class="card text-center my-2" style="width: 18rem;"> 
-        <div class="card-header">
-          Name
+        <div class="card-header" id="name">
         </div>
-        <div class="card-body">
+        <div class="card-body" id="imageUrl">
           <div class="card-image-holder">
-            <img class="img-thumbnail p-2" src="http://kittentoob.com/wp-content/uploads/2015/06/funny-cat-with-a-towel.jpg" alt="kitten with towel ear muffs">
+            <img class="img-thumbnail p-2">
           </div>
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          
-        
-</div>
-        <div class="card-footer text-center text-muted">Type of Pet</div>
+          <h5 class="card-title" id="color"></h5>
+          <p class="card-text" id="specialSkill"></p>
+        </div>
+        <div class="card-footer text-center text-muted" id="typeOfPet"></div>
       </div>
       </div>
     </div> 

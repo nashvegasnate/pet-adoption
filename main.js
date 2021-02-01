@@ -210,3 +210,63 @@ const pets = [
       imageUrl: "http://lsae2.iypcdn.com/static//modules/uploads/photos/language1/dino-live-22.jpg?119"
     }
   ];
+
+  const printToDom = (divId, textToPrint) => {
+    const selectedDiv = document.querySelector(divId);
+    selectedDiv.innerHTML = textToPrint;
+  }
+
+  const createPetCards = (taco) => {
+    let domString = '';
+  
+    for (let i = 0; i < taco.length; i++) {
+      
+      domString += `<div class="card my-2" style="width: 18rem;" id=${i}>
+                      <div class="img-container" style="background-image: url('${taco[i].imageUrl}');"></div>
+                      <div class="card-body">
+                        <p class="card-text">${taco[i].name}</p>
+                        <p class="card-text">${taco[i].color}</p>
+                        <p class="card-text">${taco[i].specialSkill}</p>
+                        <p class="card-text">${taco[i].type}</p>
+                        <button type="button" class="btn btn-danger" id="${i}">Delete</button>
+                      </div>
+                    </div>`;
+    }
+  
+    printToDom('#pets', domString); 
+  }
+  
+ const handleButtonClick = (e) => {
+  const buttonId = e.target.id; 
+
+  const selectedPets = [];
+  for (let i = 0; i < pets.length; i++) {
+    if(pets[i].type === buttonId) {
+      selectedPets.push(pets[i]);
+    }
+  }
+
+  if(buttonId === "all") {
+    createPetCards(pets);
+  } else {
+    createPetCards(selectedPets);
+  
+  }
+  }
+
+  const buttonEvents = () => {
+    document.querySelector('#all').addEventListener('click', handleButtonClick);
+    document.querySelector('#cat').addEventListener('click', handleButtonClick);document.querySelector('#dog').addEventListener('click', handleButtonClick);
+    document.querySelector('#dino').addEventListener('click', handleButtonClick);
+
+  
+
+
+  }
+
+const init = () => {
+  buttonEvents();
+  createPetCards(pets);
+}
+
+init();
