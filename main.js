@@ -211,12 +211,13 @@ const pets = [
     }
   ];
 
-
+// Prints to DOM
   const printToDom = (divId, textToPrint) => {
     const selectedDiv = document.querySelector(divId);
     selectedDiv.innerHTML = textToPrint;
   }
 
+  // Iterates through array and includes card attributes for each
   const createPetCards = (pets) => {
     let domString = '';
   
@@ -236,6 +237,7 @@ const pets = [
     printToDom('#pets', domString); 
   }
   
+  // Sorts all pets on button click
  const handleButtonClick = (e) => {
   const buttonId = e.target.id; 
 
