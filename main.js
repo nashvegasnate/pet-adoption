@@ -11,7 +11,7 @@ const pets = [
       color: "Poop-Colored",
       specialSkill: "Just picks the tomatoes off of a sandwich instead of requesting a whole new sandwich.",
       type: "dino",
-      imageUrl: "http://www.jozilife.co.za/wp-content/uploads/The-Dino-Expo.jpg"
+      imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1UqWyqzhu_RnhfNl_UqWkS3rczogpKzXGDQ&usqp=CAU"
     },
     {
       name: "Whiskers",
@@ -53,7 +53,7 @@ const pets = [
       color: "Grey",
       specialSkill: "Comfortable in the outdoors for up to eight hours.",
       type: "dino",
-      imageUrl: "http://www.theouthousers.com/images/jck//ThanosCopter/news/grumpasaur.jpg"
+      imageUrl: "https://englishtribuneimages.blob.core.windows.net/gallary-content/2020/6/2020_6$largeimg_277754035.jpg"
     },
     {
       name: "Sassy",
@@ -109,7 +109,7 @@ const pets = [
       color: "Poop-Colored",
       specialSkill: "Drives at a safe rate of speed in snow or rain.",
       type: "dino",
-      imageUrl: "https://images.readwrite.com/wp-content/uploads/2018/03/t-rex-dino-quiz-e1490854556549.jpg"
+      imageUrl: "https://res.cloudinary.com/culturemap-com/image/upload/ar_4:3,c_fill,g_faces:center,w_980/v1605651295/photos/316800_original.jpg"
     },
     {
       name: "Muffin",
@@ -123,14 +123,14 @@ const pets = [
       color: "Poop-Colored",
       specialSkill: "Proficient in air guitar",
       type: "dino",
-      imageUrl: "https://www.nation.co.ke/image/view/-/4078922/highRes/1742693/-/maxw/600/-/1453yvh/-/DINO.jpg"
+      imageUrl: "https://ksltv.com/wp-content/uploads/2020/03/dinosaur-raptor-was-attacking-620x349.jpg"
     },
     {
       name: "Callie",
       color: "Blue",
       specialSkill: "Listens attentively to boring stories.",
       type: "dog",
-      imageUrl: "http://dailynewsdig.com/wp-content/uploads/2014/03/Creative-And-Funny-Dog-Stock-Photography-Pictures-2.jpg"
+      imageUrl: "https://i.insider.com/5484d9d1eab8ea3017b17e29?width=600&format=jpeg&auto=webp"
     },
     {
       name: "Spooky",
@@ -144,14 +144,14 @@ const pets = [
       color: "Red",
       specialSkill: "Owns a Nintendo Power Glove.",
       type: "dino",
-      imageUrl: "https://img.buzzfeed.com/buzzfeed-static/static/2015-11/2/12/enhanced/webdr15/anigif_enhanced-29802-1446485228-10.gif?crop=250:165;0,0&downsize=715"
+      imageUrl: "https://www.sciencemag.org/sites/default/files/styles/article_main_large/public/images/sn-underwaterH.jpg?itok=hTY4ViAP"
     },
     {
       name: "Snuggles",
       color: "Orange",
       specialSkill: "Is comfortable with jokes about his receding hairline.",
       type: "cat",
-      imageUrl: "http://funnyanimalphoto.com/wp-content/uploads/2013/08/cat_caught_mouse_thegatewaypundit.jpg"
+      imageUrl: "https://www.funny-pics.biz/images/crazy-cats-angry.jpg"
     },
     {
       name: "Buddy",
@@ -172,7 +172,7 @@ const pets = [
       color: "Red",
       specialSkill: "Knows the words to 4 rap songs.",
       type: "cat",
-      imageUrl: "http://funbk.s3.amazonaws.com/wp-content/uploads/2016/06/funny-cat-video-which-will-make-you-laugh-louder.jpg"
+      imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbm-MOaCDPXYgf5HkLJZxrtch3pSeLw4TECw&usqp=CAU"
     },
     {
       name: "Bubba",
@@ -207,6 +207,69 @@ const pets = [
       color: "Red",
       specialSkill: "Doesn’t get weirded out by the word “moist.”",
       type: "dino",
-      imageUrl: "http://lsae2.iypcdn.com/static//modules/uploads/photos/language1/dino-live-22.jpg?119"
+      imageUrl: "https://nypost.com/wp-content/uploads/sites/2/2021/01/crocodile-dinosaur-extinction-2.jpg?quality=80&strip=all"
     }
   ];
+
+// Prints to DOM
+  const printToDom = (divId, textToPrint) => {
+    const selectedDiv = document.querySelector(divId);
+    selectedDiv.innerHTML = textToPrint;
+  }
+
+  // Iterates through array and includes card attributes for each
+  const createPetCards = (pets) => {
+    let domString = '';
+  
+    for (let i = 0; i < pets.length; i++) {
+      
+      domString += `<div class="card my-2" style="width: 18rem;" id=${i}>
+                        <div class="card-header">${pets[i].name}</div>
+                        <img class="img-container" style="background-image: url('${pets[i].imageUrl}');"></img>
+                        <div class="card-body">
+                        <h5 class="card-text">${pets[i].color}</h5>
+                        <p class="card-text">${pets[i].specialSkill}</p>
+                        </div> 
+                      <div class="card-footer ${pets[i].type} text-center">${pets[i].type}</div>
+                    </div>`;
+    }
+  
+    printToDom('#pets', domString); 
+  }
+  
+  // Sorts all pets on button click
+ const handleButtonClick = (e) => {
+  const buttonId = e.target.id; 
+
+  const selectedPets = [];
+  for (let i = 0; i < pets.length; i++) {
+    if(pets[i].type === buttonId) {
+      selectedPets.push(pets[i]);
+    }
+  }
+
+  if(buttonId === "all") {
+    createPetCards(pets);
+  } else {
+    createPetCards(selectedPets);
+  
+  }
+  }
+
+  const buttonEvents = () => {
+    document.querySelector('#all').addEventListener('click', handleButtonClick);
+    document.querySelector('#cat').addEventListener('click', handleButtonClick);document.querySelector('#dog').addEventListener('click', handleButtonClick);
+    document.querySelector('#dino').addEventListener('click', handleButtonClick);
+
+  
+
+
+  }
+
+
+const init = () => {
+  buttonEvents();
+  createPetCards(pets);
+}
+
+init();
