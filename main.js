@@ -211,25 +211,25 @@ const pets = [
     }
   ];
 
+
   const printToDom = (divId, textToPrint) => {
     const selectedDiv = document.querySelector(divId);
     selectedDiv.innerHTML = textToPrint;
   }
 
-  const createPetCards = (taco) => {
+  const createPetCards = (pets) => {
     let domString = '';
   
-    for (let i = 0; i < taco.length; i++) {
+    for (let i = 0; i < pets.length; i++) {
       
       domString += `<div class="card my-2" style="width: 18rem;" id=${i}>
-                      <div class="img-container" style="background-image: url('${taco[i].imageUrl}');"></div>
-                      <div class="card-body">
-                        <p class="card-text">${taco[i].name}</p>
-                        <p class="card-text">${taco[i].color}</p>
-                        <p class="card-text">${taco[i].specialSkill}</p>
-                        <p class="card-text">${taco[i].type}</p>
-                        <button type="button" class="btn btn-danger" id="${i}">Delete</button>
-                      </div>
+                        <div class="card-header">${pets[i].name}</div>
+                        <img class="img-container" style="background-image: url('${pets[i].imageUrl}');"></img>
+                        <div class="card-body">
+                        <h5 class="card-text">${pets[i].color}</h5>
+                        <p class="card-text">${pets[i].specialSkill}</p>
+                        </div> 
+                      <div class="card-footer text-center">${pets[i].type}</div>
                     </div>`;
     }
   
@@ -263,6 +263,7 @@ const pets = [
 
 
   }
+
 
 const init = () => {
   buttonEvents();
