@@ -12,4 +12,14 @@ h1 {
    background-position: center;
  }
 
- /* target the ID for specific type of pet */
+ .cat {
+   background-color: royalblue;
+   }
+
+  .dog {
+    background-color: yellow;
+  }
+  
+  .dino {
+    background-color: red;
+  }

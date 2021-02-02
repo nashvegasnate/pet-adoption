@@ -229,7 +229,7 @@ const pets = [
                         <h5 class="card-text">${pets[i].color}</h5>
                         <p class="card-text">${pets[i].specialSkill}</p>
                         </div> 
-                      <div class="card-footer text-center">${pets[i].type}</div>
+                      <div class="card-footer ${pets[i].type} text-center">${pets[i].type}</div>
                     </div>`;
     }
   
